@@ -1,0 +1,40 @@
+<div class="container" style="margin-bottom: 40px;">
+  <div class="d-flex justify-content-between align-items-center home">
+    <h2 class="my-4 title">Novo post</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" (keydown.enter)="searchMovies()" placeholder="Search movies..." [(ngModel)]="searchTerm">
+        <button class="btn btn-primary" type="button" (click)="searchMovies()">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="text-center">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+
+  <app-message *ngIf="movieExistsDB" [message]="movieExistsDBMessage" (click)="closeMovieExistsDBMessage()"></app-message>
+  <app-message *ngIf="movieNotFound" [message]="movieNotFoundMessage" (click)="closeMmovieNotFoundMessage()"></app-message>
+  <app-message *ngIf="errorRequests" [message]="errorRequestsMessage" (click)="closEerrorRequestsMessage()"></app-message>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="list-group">
+        <div *ngFor="let movie of searchResults" class="list-group-item list-group-item-action">
+          <div class="d-flex justify-content-between align-items-center flex-column flex-md-row">
+            <div class="d-flex align-items-center mb-3 mb-md-0 list">
+              <img src="{{ movie.Poster }}" alt="{{ movie.Title }} poster" class="img-thumbnail mr-3" style="max-width: 100px;">
+              <div>
+                <h5 class="mb-1">{{ movie.Title }}</h5>
+                <small>{{ movie.Year }}</small>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-sm" (click)="addMovieToDb(movie)">Add Post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

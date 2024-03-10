@@ -1,0 +1,63 @@
+<div class="container" style="margin-top: 40px;">
+  <div *ngIf="loading" class="text-center">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  <app-message *ngIf="errorRequests" [message]="errorRequestsMessage" (click)="closEerrorRequestsMessage()"></app-message>
+</div>
+
+<div *ngIf="movieDetails" class="container">
+  <div class="d-flex justify-content-between align-items-center home">
+    <h2 class="my-4 title">Detalhes do post</h2>
+    <button (click)="voltarParaHome()" class="btn btn-primary">Voltar</button> <!-- Botão "Voltar" -->
+  </div>
+
+  <div *ngIf="loading" class="text-center">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+
+  <div class="card mb-3">
+    <img
+      [src]="movieDetails.Poster"
+      class="card-img-top mx-auto d-block img-fluid"
+      alt="{{ movieDetails.Title }} poster"
+    />
+    <div class="card-body">
+      <h1 class="card-title">{{ movieDetails.Title }}</h1>
+      <p class="card-text"><strong>Year:</strong> {{ movieDetails.Year }}</p>
+      <p class="card-text"><strong>Rated:</strong> {{ movieDetails.Rated }}</p>
+      <p class="card-text">
+        <strong>Released:</strong> {{ movieDetails.Released }}
+      </p>
+      <p class="card-text">
+        <strong>Runtime:</strong> {{ movieDetails.Runtime }}
+      </p>
+      <p class="card-text"><strong>Genre:</strong> {{ movieDetails.Genre }}</p>
+      <p class="card-text">
+        <strong>Director:</strong> {{ movieDetails.Director }}
+      </p>
+      <p class="card-text">
+        <strong>Writer:</strong> {{ movieDetails.Writer }}
+      </p>
+      <p class="card-text">
+        <strong>Actors:</strong> {{ movieDetails.Actors }}
+      </p>
+      <p class="card-text"><strong>Plot:</strong> {{ movieDetails.Plot }}</p>
+      <p class="card-text">
+        <strong>Language:</strong> {{ movieDetails.Language }}
+      </p>
+      <p class="card-text">
+        <strong>Country:</strong> {{ movieDetails.Country }}
+      </p>
+      <p class="card-text">
+        <strong>Awards:</strong> {{ movieDetails.Awards }}
+      </p>
+
+      <h3>Ratings</h3>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let rating of movieDetails.Ratings">
+          <strong>{{ rating.Source }}:</strong> {{ rating.Value }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

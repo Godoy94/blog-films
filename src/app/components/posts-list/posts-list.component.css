@@ -1,0 +1,32 @@
+.card-body {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    width: 100px;
+    margin-left: 10px;
+}
+
+@media (max-width: 767px) { 
+
+    .card {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column !important;
+        align-items: center;
+        text-align: center;
+    }
+
+    .card-button {
+        margin-top: 20px;
+    }
+
+    img {
+        margin-top: 10px;
+    }
+
+}

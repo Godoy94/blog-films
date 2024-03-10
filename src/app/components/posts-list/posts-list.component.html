@@ -1,0 +1,24 @@
+<div class="container">
+  <app-message style="margin-top: 30px;" *ngIf="errorRequests" [message]="errorRequestsMessage" (click)="closEerrorRequestsMessage()"></app-message>
+  <div *ngIf="loading" class="d-flex justify-content-center align-items-center vh-100">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  <div class="row">
+    <div *ngFor="let movie of movies" class="col-md-12 mb-3">
+      <div class="card flex-row">
+
+        <img [src]="movie.Poster" alt="{{ movie.Title }} poster" class="img-fluid" style="max-width: 200px; height: auto;">
+        <div class="card-body">
+          <div class="card-data">
+            <h5 class="card-title">{{ movie.Title }}</h5>
+            <p class="card-text"><strong>Year:</strong> {{ movie.Year }}</p>
+          </div>
+          <div class="card-button">
+            <button class="btn btn-danger btn-sm" (click)="deletePost(movie.id)">Deletar Post</button>
+            <button class="btn btn-primary btn-sm" (click)="navigateToDetails(movie.imdbID)">Detalhes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
