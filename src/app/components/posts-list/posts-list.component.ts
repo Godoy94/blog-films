@@ -29,7 +29,6 @@ export class PostsListComponent implements OnInit {
     this.loading = true;
     this.dbService.getMovies().subscribe(
       (movies) => {
-        console.log(movies);
         this.movies = movies;
         this.loading = false; 
       },

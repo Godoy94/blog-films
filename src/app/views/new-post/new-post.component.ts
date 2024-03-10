@@ -65,7 +65,6 @@ export class NewPostComponent {
         this.dbService.postMovie(movie).subscribe(
           () => {
             this.router.navigate(['/']);
-            console.log('Movie added successfully');
           },
           (error) => {
             this.loading = false;
