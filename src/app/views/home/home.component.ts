@@ -13,8 +13,4 @@ export class HomeComponent {
   navigateToNewPost() {
     this.router.navigate(['/new-post']);
   }
-
-  closEerrorRequestsMessage() {
-
-  }
 }
